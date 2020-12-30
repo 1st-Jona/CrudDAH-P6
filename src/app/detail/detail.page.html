@@ -23,7 +23,8 @@
             </ion-fab-button>
         </ion-fab-list>
     </ion-fab>
-    <ion-card style="text-align: center;">
+    <!-- 
+        <ion-card style="text-align: center;">
         <ion-card-header>
             <ion-card-subtitle>{{student.name}}</ion-card-subtitle>
             <ion-card-title>{{student.controlnumber}}</ion-card-title>
@@ -39,4 +40,46 @@
             </ion-chip>
         </ion-card-content>
     </ion-card>
+    -->
+    <form [formGroup]="myForm">
+
+        <ion-label> <strong>Nombre:</strong> </ion-label>
+        <ion-row>
+            <ion-input type="text" values="" formControlName="name" disabled="{{nameS}}"></ion-input>
+            <ion-button color="medium" style="font-size: 50%;" (click)="nameS=false">
+                <ion-icon name="pencil-outline"></ion-icon>
+            </ion-button>
+        </ion-row>
+        <ion-label> <strong>Número de control:</strong> </ion-label>
+        <ion-row>
+            <ion-input type="text" values="" formControlName="controlnumber" disabled="{{controlnumberS}}"></ion-input>
+            <ion-button color="medium" style="font-size: 50%;" (click)="controlnumberS=false">
+                <ion-icon name="pencil-outline"></ion-icon>
+            </ion-button>
+        </ion-row>
+        <ion-label> <strong>CURP:</strong> </ion-label>
+        <ion-row>
+
+            <ion-input type="text" values="" formControlName="curp" disabled="{{curpS}}"></ion-input>
+            <ion-button color="medium" style="font-size: 50%;" (click)="curpS=false">
+                <ion-icon name="pencil-outline"></ion-icon>
+            </ion-button>
+        </ion-row>
+        <ion-label> <strong>Edad:</strong> </ion-label>
+        <ion-row>
+
+            <ion-input type="text" values="" formControlName="age" disabled="{{ageS}}"></ion-input>
+            <ion-button color="medium" style="font-size: 50%;" (click)="ageS=false">
+                <ion-icon name="pencil-outline"></ion-icon>
+            </ion-button>
+        </ion-row>
+        <ion-label> <strong>Estatus:</strong> </ion-label>
+        <ion-row>
+
+            <ion-toggle formControlName="active" color="secondary" checked="{{student.active}}"></ion-toggle>
+        </ion-row>
+        <ion-button expand=" block " color="secondary" (click)="update()">
+            Actualizar
+        </ion-button>
+    </form>
 </ion-content>
