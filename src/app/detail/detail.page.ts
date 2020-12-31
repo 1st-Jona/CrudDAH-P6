@@ -63,7 +63,7 @@ export class DetailPage implements OnInit {
       }
 
       this.studentService.updateStudent(this.student,this.student.id);
-    this.presentToast();
+    this.presentToast("Estudiante actualizado");
     this.setAllDisabled();
     this.ngOnInit();
 
@@ -74,11 +74,16 @@ export class DetailPage implements OnInit {
     this.curpS=true;
     this.ageS=true;
   }
+  delete(id:string){
+    this.studentService.deleteStudent(id);
+    this.presentToast("Estudiante eliminado");
+    this.router.navigate(['/']);
+  }
 
-
-  async presentToast() {
+ 
+  async presentToast(msj:string) {
     const toast = await this.toast.create({
-      message: 'Se han guardado los cambios.',
+      message: msj,
       duration: 2000
     });
     toast.present();
