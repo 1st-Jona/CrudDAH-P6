@@ -79,6 +79,9 @@ export class DetailPage implements OnInit {
     this.presentToast("Estudiante eliminado");
     this.router.navigate(['/']);
   }
+  back(){
+    this.router.navigate(['/']);
+  }
 
  
   async presentToast(msj:string) {
